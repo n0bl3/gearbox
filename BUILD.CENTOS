@@ -47,34 +47,15 @@ EOF
     popd
 }
 
-function install_boost() {
-    local BOOST=boost_1_54_0
-    local BOOST_OUTPUT=${BOOST}.tar.bz2
-    local BOOST_DOWNLOAD_URL='http://downloads.sourceforge.net/project/boost/boost/1.54.0/boost_1_54_0.tar.bz2'
-
-    wget --output-document=${BOOST_OUTPUT} ${BOOST_DOWNLOAD_URL}
-    tar --bzip2 -xf ${BOOST_OUTPUT}
-    pushd ${BOOST}
-    no_output_execution ./bootstrap.sh
-    no_output_execution sudo ./b2 --with-program_options --with-system --with-iostreams --with-graph --with-filesystem --prefix=/usr install
-    popd
-}
-
-no_output_execution sudo yum install ruby cmake bzip2-devel -y
+no_output_execution sudo yum install ruby cmake bzip2-devel boost-devel boost -y
  
 install_yajl
-install_boost
 
 no_output_execution sudo yum install httpd httpd-devel -y
-no_output_execution sudo yum install perl-devel perl-CPAN libuuid-devel -y
+no_output_execution sudo yum install perl-devel perl-CPAN perl-libwww-perl perl-ExtUtils-Embed libuuid-devel -y
 no_output_execution sudo yum install autoconf libtool libgearman-devel log4cxx-devel libcurl-devel ccache swig perl-dev php-devel -y
 no_output_execution sudo yum install soci-devel soci soci-mysql-devel soci-sqlite3-devel -y
 no_output_execution sudo yum install perl-JSON perl-Log-Log4perl perl-Log-Dispatch-Perl sqlite -y
 
-no_output_execution sudo cpanm HTTP::Daemon
-no_output_execution sudo cpanm Test::Trivial
-
-export PATH=/usr/lib/ccache:$PATH
-
 ./autogen.sh
-./configure --with-boost-libdir=/usr/lib
+./configure
