@@ -53,7 +53,7 @@ install_yajl
 
 no_output_execution sudo yum install httpd httpd-devel -y
 no_output_execution sudo yum install perl-devel perl-CPAN perl-libwww-perl perl-ExtUtils-Embed libuuid-devel -y
-no_output_execution sudo yum install autoconf libtool libgearman-devel log4cxx-devel libcurl-devel ccache swig perl-dev php-devel -y
+no_output_execution sudo yum install autoconf libtool libgearman-devel log4cxx log4cxx-devel libcurl-devel ccache swig perl-dev php-devel -y
 no_output_execution sudo yum install soci-devel soci soci-mysql-devel soci-sqlite3-devel -y
 no_output_execution sudo yum install perl-JSON perl-Log-Log4perl perl-Log-Dispatch-Perl sqlite -y
 
