@@ -17,8 +17,6 @@ using namespace Gearbox;
 #include <workers/gearbox/WorkerGearbox.h>
 #include <workers/gearbox/DelayProcessor.h>
 
-#include <stub/gearman.hh>
-
 using namespace Gearbox;
 using std::string;
 using namespace soci;
