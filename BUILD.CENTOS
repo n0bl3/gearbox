@@ -59,4 +59,3 @@ no_output_execution sudo yum install perl-JSON perl-Log-Log4perl perl-Log-Dispat
 
 ./autogen.sh
 ./configure
-
